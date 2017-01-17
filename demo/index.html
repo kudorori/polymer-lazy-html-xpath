@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>lazy-html-xpath demo</title>
+	<script>
+    /* this script must run before Polymer is imported */
+    window.Polymer = {
+      dom: 'shadow',
+      lazyRegister: true
+    };
+  </script>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../lazy-html-xpath.html">
+	
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic lazy-html-xpath demo</h3>
+      <demo-snippet>
+        <template>
+          <lazy-html-xpath>
+          	<button>AAA</button>
+          	<ul>
+	          	<li>1</li>
+	          	<li>2</li>
+	          	<li>3</li>
+          	</ul>
+          </lazy-html-xpath>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

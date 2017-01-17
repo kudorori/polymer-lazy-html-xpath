@@ -1,0 +1,51 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`lazy-html-xpath`
+
+
+@demo demo/index.html 
+-->
+
+<dom-module id="lazy-html-xpath">
+  <template>
+  	
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'lazy-html-xpath',
+
+      properties: {
+        
+      },
+      listeners:{
+// 	      "click":"_click"
+      },
+      _click:function(e){
+	      
+      },
+	  getElementXPath:function(elt){
+		  	var path = "";   
+			for (; elt && elt.nodeType == 1||elt.nodeType==11; elt = elt.parentNode)   
+			{        
+				if(elt.nodeType==11) elt = elt.host;
+				idx = this._getElementIndex(elt);        
+				xname = elt.tagName;     
+				if (idx > 1) xname += "[" + idx + "]";       
+				path = "/" + xname + path;   
+			}
+			return path; 
+	  },
+	  _getElementIndex:function(elt){
+			var count = 1;    
+			for (var sib = elt.previousSibling; sib ; sib = sib.previousSibling)    
+			{        
+				if(sib.nodeType == 1 && sib.tagName == elt.tagName)  count++    
+			}        
+			return count;
+	  }
+    });
+  </script>
+</dom-module>
